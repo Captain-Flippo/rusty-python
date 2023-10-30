@@ -4,12 +4,13 @@
 source config.sh
 
 ## configure git
-git config --global user.name $GIT_USER
-git config --global user.email $GIT_EMAIL
+source scripts/select_git_profile.sh -w
 
 git config --global alias.s "status -s"
 git config --global alias.c "commit -m"
 git config --global alias.l "log --oneline --graph --decorate --all"
+
+git config --global --add safe.directory /workspaces/*
 
 
 ## configure poetry
@@ -17,13 +18,11 @@ poetry config virtualenvs.in-project true
 
 ## get powerline fonts
 # clone
-git clone https://github.com/powerline/fonts.git --depth=1
-# install
-cd fonts
-./install.sh
-# clean-up a bit
+git clone https://github.com/powerline/fonts.git
+cd "fonts"
+source "install.sh"
 cd ..
-rm -rf fonts
+rm -rf "fonts"
 
 ## configure fish
 
