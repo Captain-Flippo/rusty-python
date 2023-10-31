@@ -25,7 +25,7 @@
 		// 	"type": "volume"
 		// },
 		{
-			"source": "LOCAL_REPO_PATH",
+			"source": "PUT PATH",
 			"target": "/workspaces/rusty-python/repos",
 			"type": "bind"
 		}
@@ -38,7 +38,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "source scripts/setup.sh",
+	"postCreateCommand": "sudo bash /workspaces/rusty-python/scripts/setup.sh",
 
 	// Configure tool-specific properties.
 	"customizations": {
